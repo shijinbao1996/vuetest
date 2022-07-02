@@ -9,15 +9,16 @@
       </tr>
       <!-- 循环渲染的元素tr -->
       <tr v-for="item in list" :key="item.id">
-            <td>{{item.id}}</td>
-            <td>{{item.name}}</td>
-            <td>{{item.time}}</td>
-            <td>
-                <button @click="del(item.id)">删除</button>
-            </td>
-        </tr>
-      <tr >
-        <td colspan="4" v-if="!this.list.length">没有数据咯~</td>
+        <td>{{ item.id }}</td>
+        <td>{{ item.name }}</td>
+        <td>{{ item.time }}</td>
+        <td>
+          <button @click="delFn(item.id)">删除</button>
+        </td>
+      </tr>
+      <!--  -->
+      <tr v-if="list.length == 0">
+        <td colspan="4">没有数据咯~</td>
       </tr>
     </table>
   </div>
@@ -28,20 +29,17 @@ export default {
   data() {
     return {
       list: [
-        { id: 1, name: "奔驰", time: "2020-08-01" },
-        { id: 2, name: "宝马", time: "2020-08-02" },
-        { id: 3, name: "奥迪", time: "2020-08-03" },
+        { id: 1, name: '奔驰', time: '2020-08-01' },
+        { id: 2, name: '宝马', time: '2020-08-02' },
+        { id: 3, name: '奥迪', time: '2020-08-03' },
       ],
     };
   },
   methods: {
-   del(id){
-    const index = this.list.findIndex( ele => {
-        return id == ele.id;
-    })
-    this.list.splice(index,1)
-   }
-   
+    delFn(id) {
+      const index = this.list.findIndex((ele) => id == ele.id);
+      this.list.splice(index, 1);
+    },
   },
 };
 </script>

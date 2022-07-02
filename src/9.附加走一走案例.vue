@@ -1,5 +1,5 @@
 <template>
-  <div id="app">
+  <div>
     <ul>
       <li v-for="item in myArr" :key="item">{{ item }}</li>
     </ul>
@@ -11,19 +11,18 @@
 export default {
   data() {
     return {
-      myArr: ["帅哥", "美女", "程序猿"],
+      myArr: ['帅哥', '美女', '程序员'],
     };
   },
   methods: {
     btn() {
-      // 头部数据加入到末尾
+      // 尾部添加第一项
       this.myArr.push(this.myArr[0]);
-      // 再把头部的数据删除掉
+      // 删除第一项
       this.myArr.shift();
     },
   },
 };
 </script>
 
-<style>
-</style>
+<style></style>

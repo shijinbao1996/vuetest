@@ -5,35 +5,32 @@
     :class="{类名: 布尔值}"
     使用场景: vue变量控制标签是否应该有类名
     v-bind:class 和 普通的class 是可以共存的-->
-    <p v-bind:class="{active: activeFlag}" class="ppp">我是乒乒乓乓</p>
-    <button @click="activeFlag = !activeFlag">Click ME</button>
+
+    <!-- active 现在对象属性
+         active 类名 -->
+    <p :class="{ active: isActive }" class="ppp">我是乒乒乓乓</p>
+    <button @click="isActive = !isActive">按钮</button>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'VuecliDemo03Class',
-
   data() {
     return {
-      activeFlag: true
+      isActive: true,
     };
   },
 
-  mounted() {
-    
-  },
+  mounted() {},
 
-  methods: {
-    
-  },
+  methods: {},
 };
 </script>
 <style>
-  .active {
-    color: red;
-  }
-  .ppp{
-    border: 10px solid #ccc;
-  }
+.active {
+  color: red;
+}
+.ppp {
+  border: 10px solid #ccc;
+}
 </style>

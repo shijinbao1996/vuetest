@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script type="text/javascript">
+
+        // 1.请补全JavaScript代码，要求实现对象参数的深拷贝并返回拷贝之后的新对象
+        // const _completeDeepClone = (target, map = new Map()) => {
+        //     // 补全代码
+
+        // }
+        //     let obj = {
+        //     id: 1,
+        //     name: 'andy',
+        //     msg: { age: 18 },
+        //   };
+        //   let o = 0;
+        //   // 函数封装
+        //   function deepCopy(newObj, oldObj) {
+        //     for (let k in oldObj) {
+        //       // 1、获取属性值
+        //       let item = oldObj[k];
+        //       // 2、判断这个值是否是对象
+        //       if (item instanceof Array) {
+        //         newObj[k] = [];
+        //         deepCopy(newObj, item);
+        //       } else if (item instanceof Object) {
+        //         newObj[k] = {};
+        //         deepCopy(newObj[k], item);
+        //       } else {
+        //         newObj[k] = item;
+        //       }
+        //     }
+        //   }
+        //   deepCopy(o, obj);
+        //   console.log(o);
+
+
+        // // 2. 模拟实现instanceof
+        // class Person {
+        //     constructor(name, age) {
+        //         this.name = name;
+        //         this.age = age
+        //     }
+        // }
+        // const person = new Person('zs', 18)
+
+        // function myInstanceOf(son, father) {
+        //     let pointer = son
+        //     while (pointer) {
+        //         if (pointer = father.prototype) {
+        //             return true
+        //         }
+        //         pointer = pointer.__proto__
+        //     }
+        //     return false
+        // }
+        // console.log(myInstanceOf(person.__proto__, Person));
+
+
+        // // 3. this 指向
+        function fn() {
+            console.log(this);
+        } //this 指向window
+        const obj = {
+            name: "test",
+            a() {
+                console.log(this.a); //this 指向 obj
+                setTimeout(function () {
+                    console.log(this.a); // this 指向window
+                }, 1000);
+            },
+            b() {
+                console.log(this); // this 指向 obj
+                fn();
+            },
+        };
+        obj.a();
+        obj.b();
+    </script>
+
+</body>
+
+</html>

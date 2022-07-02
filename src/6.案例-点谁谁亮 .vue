@@ -2,9 +2,9 @@
   <div>
     <ul>
       <li
-        :class="{ active: index === currentIndex }"
         v-for="(item, index) in navs"
-        :key="item"
+        :key="index"
+        :class="{ active: index === current }"
         @click="toggle(index)"
       >
         {{ item }}
@@ -18,17 +18,14 @@
 export default {
   data() {
     return {
-      navs: ["大学起点", "高中起点", "初中起点", "小学起点"],
-      currentIndex: 0,
+      current: 0,
+      navs: ['大学起点', '高中起点', '初中起点', '小学起点'],
     };
   },
 
-  mounted() {},
-
   methods: {
-    toggle(val) {
-      console.log(val);
-      this.currentIndex = val;
+    toggle(ind) {
+      this.current = ind;
     },
   },
 };
