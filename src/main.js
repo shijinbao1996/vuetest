@@ -1,21 +1,15 @@
-import Vue from 'vue';
-import App from './App.vue';
-import 'bootstrap/dist/css/bootstrap.css';
+import Vue from 'vue'
+import App from './App.vue'
 
+Vue.config.productionTip = false
 
-Vue.config.productionTip = false;
-// 定义全局过滤器
-Vue.filter('toLowerCase', (val) => {
-  return val.toLowerCase();
-});
+import axios from 'axios'
+// axios默认拼接根地址
+axios.defaults.baseURL = "http://www.liulongbin.top:3006"
+// Vue 原型挂载 axios 方便在所有组件中调用（this.$axios）
+Vue.prototype.$axios = axios
 
-Vue.filter('toReverse', (val, split) => {
-  return val
-    .split('')
-    .reverse()
-    .join(split || '');
-});
-// =======================================================
 new Vue({
-  render: (h) => h(App),
-}).$mount('#app');
+  // el: "#app", // vue实例编译后的模板挂载到index.html的id叫app的标签上
+  render: h => h(App),
+}).$mount("#app")
